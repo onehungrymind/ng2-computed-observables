@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
+import { UserItem } from '../../shared';
 
 @Component({
   selector: 'app-user-items',
@@ -6,6 +7,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./user-items.component.css']
 })
 export class UserItemsComponent implements OnInit {
+  @Input() userItem: UserItem;
 
   constructor() { }
 

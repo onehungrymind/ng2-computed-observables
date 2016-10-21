@@ -3,8 +3,7 @@
   <md-card-content>
     <md-list>
       <md-list-item *ngFor="let user of users">
-        <h3 md-line>{{user.name}}</h3>
-        <p md-line *ngFor="let item of items">{{item.name}}</p>
+        <app-user-items [userItem]="user"></app-user-items>
       </md-list-item>
     </md-list>
   </md-card-content>

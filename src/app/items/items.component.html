@@ -2,7 +2,9 @@
   <md-card-title>Items</md-card-title>
   <md-card-content>
     <md-list>
-      <md-list-item *ngFor="let item of items">{{item.name}}</md-list-item>
+      <md-list-item *ngFor="let item of items">
+        <app-item [item]="item"></app-item>
+      </md-list-item>
     </md-list>
   </md-card-content>
 </md-card>

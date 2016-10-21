@@ -21,5 +21,6 @@ md-card {
 
 .md-list-item {
   height: auto !important;
+  margin: 15px 0;
 }
 
