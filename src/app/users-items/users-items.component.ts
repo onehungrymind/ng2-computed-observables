@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Observable } from 'rxjs/Observable';
 import { ItemsService, Items, UsersService, Users, User, UserItem } from '../shared';
 
 @Component({
@@ -7,8 +8,8 @@ import { ItemsService, Items, UsersService, Users, User, UserItem } from '../sha
   styleUrls: ['./users-items.component.css']
 })
 export class UsersItemsComponent implements OnInit {
-  items: Items = this.itemsService.getItems();
-  users: Users = this.usersService.getUsers();
+  items: Observable<Items> = this.itemsService.getItems();
+  users: Observable<any>;
 
   constructor(
     private itemsService: ItemsService,
@@ -17,10 +18,11 @@ export class UsersItemsComponent implements OnInit {
 
   ngOnInit() {
     // Temporary
-    this.users.forEach((user: any) => {
-      user.userName = user.name;
-      user.items = this.items;
-    });
+    this.users = this.usersService.getUsers()
+      .map((users: any) => {
+        return users
+          .map(user => Object.assign({}, user, {userName: user.name, items: this.items}));
+      });
   }
 
 }

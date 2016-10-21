@@ -3,6 +3,8 @@ import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 import { MaterialModule } from '@angular/material';
+import { combineReducers, StoreModule } from '@ngrx/store';
+
 import { AppComponent } from './app.component';
 import { UsersComponent } from './users/users.component';
 import { ItemsComponent } from './items/items.component';
@@ -14,8 +16,12 @@ import { UserItemsComponent } from './users-items/user-items/user-items.componen
 import {
   UsersService,
   UsersItemsService,
-  ItemsService
+  ItemsService,
+  users,
+  items
 } from './shared';
+
+const rootReducer = combineReducers({users, items});
 
 @NgModule({
   declarations: [
@@ -31,7 +37,8 @@ import {
     BrowserModule,
     FormsModule,
     HttpModule,
-    MaterialModule.forRoot()
+    MaterialModule.forRoot(),
+    StoreModule.provideStore(rootReducer)
   ],
   providers: [
     UsersService,

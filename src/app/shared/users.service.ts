@@ -1,13 +1,15 @@
 import { Injectable } from '@angular/core';
+import { ActionReducer, Action, Store } from '@ngrx/store';
 import { UUID } from 'angular2-uuid';
+import { AppStore } from '../app-store';
 
 @Injectable()
 export class UsersService {
 
-  constructor() { }
+  constructor(private store: Store<AppStore>) { }
 
   getUsers() {
-    return users;
+    return this.store.select('users');
   }
 
 }
@@ -19,8 +21,16 @@ export interface User {
 
 export interface Users extends Array<User> {}
 
-const users: Users = [
+const initialState: Users = [
   {id: 1, name: 'Victor Wooten'},
   {id: 2, name: 'Marcus Miller'},
   {id: 3, name: 'Jaco Pastorious'}
 ];
+
+export const users: ActionReducer<Users> = (state: Users = initialState, action: Action) => {
+
+  switch (action.type) {
+    default:
+      return state;
+  }
+};

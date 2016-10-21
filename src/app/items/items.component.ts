@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Observable } from 'rxjs/Observable';
 import { ItemsService, Items } from '../shared';
 
 @Component({
@@ -7,7 +8,7 @@ import { ItemsService, Items } from '../shared';
   styleUrls: ['./items.component.css']
 })
 export class ItemsComponent implements OnInit {
-  items: Items = this.itemsService.getItems();
+  items: Observable<Items> = this.itemsService.getItems();
 
   constructor(private itemsService: ItemsService) { }
 
