@@ -2,8 +2,8 @@
   <md-card-title>User Items</md-card-title>
   <md-card-content>
     <md-list>
-      <md-list-item *ngFor="let user of users | async">
-        <app-user-items [userItem]="user"></app-user-items>
+      <md-list-item *ngFor="let userItem of usersItems$ | async">
+        <app-user-items [userItem]="userItem"></app-user-items>
       </md-list-item>
     </md-list>
   </md-card-content>

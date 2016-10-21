@@ -13,10 +13,11 @@ export class ItemsService {
   }
 
   initializeNewItem() {
-    return {id: UUID.UUID, name: '', userID: undefined};
+    return {id: UUID.UUID(), name: '', userID: undefined};
   }
 
   addItem(user) {
+    console.log('USER: ', user);
     this.store.dispatch({type: ADD_ITEM, payload: user});
   }
 
