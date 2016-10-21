@@ -1,0 +1,10 @@
+md-card-title {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 0;
+}
+
+md-input {
+  width: 100%;
+}

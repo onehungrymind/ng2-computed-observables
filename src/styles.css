@@ -24,3 +24,7 @@ md-card {
   margin: 15px 0;
 }
 
+.md-ripple-foreground {
+  display: none;
+}
+

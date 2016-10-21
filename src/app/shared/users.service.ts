@@ -12,6 +12,14 @@ export class UsersService {
     return this.store.select('users');
   }
 
+  initializeNewUser() {
+    return {id: UUID.UUID, name: ''};
+  }
+
+  addUser(user) {
+    this.store.dispatch({type: ADD_USER, payload: user});
+  }
+
 }
 
 export interface User {
@@ -20,6 +28,8 @@ export interface User {
 }
 
 export interface Users extends Array<User> {}
+
+export const ADD_USER = 'ADD_USER';
 
 const initialState: Users = [
   {id: 1, name: 'Victor Wooten'},
@@ -30,6 +40,8 @@ const initialState: Users = [
 export const users: ActionReducer<Users> = (state: Users = initialState, action: Action) => {
 
   switch (action.type) {
+    case ADD_USER:
+      return [...state, action.payload];
     default:
       return state;
   }

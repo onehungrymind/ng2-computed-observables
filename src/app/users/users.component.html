@@ -1,7 +1,21 @@
 <md-card>
-  <md-card-title>Users</md-card-title>
+  <md-card-title>
+    Users
+    <button md-fab (click)="toggleNewUser()">
+      <md-icon class="md-24">
+        {{shouldShowNewUser ? 'close' : 'add'}}
+      </md-icon>
+    </button>
+  </md-card-title>
   <md-card-content>
     <md-list>
+      <md-list-item *ngIf="shouldShowNewUser">
+        <md-input placeholder="Name" [(ngModel)]="newUser.name">
+          <a (click)="addUser(); $event.preventDefault();" href md-suffix>
+            <md-icon>add_box</md-icon>
+          </a>
+        </md-input>
+      </md-list-item>
       <md-list-item *ngFor="let user of users | async">
         <app-user [user]="user"></app-user>
       </md-list-item>
