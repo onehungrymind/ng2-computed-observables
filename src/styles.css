@@ -14,3 +14,12 @@ body {
   filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#3baff7', endColorstr='#0f91f5', GradientType=1 );
   background-repeat:no-repeat;
 }
+
+md-card {
+  background: whitesmoke;
+}
+
+.md-list-item {
+  height: auto !important;
+}
+

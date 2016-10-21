@@ -6,6 +6,10 @@ export class UsersService {
 
   constructor() { }
 
+  getUsers() {
+    return users;
+  }
+
 }
 
 export interface User {
@@ -13,4 +17,10 @@ export interface User {
   name: string
 }
 
-export interface Users extends Array<User> {};
+export interface Users extends Array<User> {}
+
+const users: Users = [
+  {id: 1, name: 'Victor Wooten'},
+  {id: 2, name: 'Marcus Miller'},
+  {id: 3, name: 'Jaco Pastorious'}
+];

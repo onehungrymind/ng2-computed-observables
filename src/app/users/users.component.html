@@ -1,3 +1,8 @@
-<p>
-  users works!
-</p>
+<md-card>
+  <md-card-title>Users</md-card-title>
+  <md-card-content>
+    <md-list>
+      <md-list-item *ngFor="let user of users"> {{user.name}} </md-list-item>
+    </md-list>
+  </md-card-content>
+</md-card>
