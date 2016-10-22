@@ -4,3 +4,13 @@ md-card-title {
   justify-content: space-between;
   margin-bottom: 0;
 }
+
+.form-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.form-footer select, .form-footer button {
+  width: 45%
+}

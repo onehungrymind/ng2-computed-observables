@@ -1,7 +1,7 @@
 <md-card>
   <md-card-title>
     Items
-    <button md-fab (click)="toggleNewItem()">
+    <button md-fab color="primary" (click)="toggleNewItem()">
       <md-icon class="md-24">
         {{shouldShowNewItem ? 'close' : 'add'}}
       </md-icon>
@@ -11,12 +11,12 @@
     <md-list>
       <md-list-item *ngIf="shouldShowNewItem">
         <md-input md-line placeholder="Name" [(ngModel)]="newItem.name"></md-input>
-        <div md-line>
+        <div class="form-footer" md-line>
           <select [(ngModel)]="newItem.userID">
             <option value="undefined">Please select</option>
             <option *ngFor="let user of users$ | async" [value]="user.id">{{user.name}}</option>
           </select>
-          <button md-button (click)="addItem()">Add</button>
+          <button md-raised-button color="accent" (click)="addItem()">Add</button>
         </div>
       </md-list-item>
       <md-list-item *ngFor="let item of items$ | async">
