@@ -16,7 +16,7 @@
           </a>
         </md-input>
       </md-list-item>
-      <md-list-item *ngFor="let user of users | async">
+      <md-list-item *ngFor="let user of users$ | async">
         <app-user [user]="user"></app-user>
       </md-list-item>
     </md-list>

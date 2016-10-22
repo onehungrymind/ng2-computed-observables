@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { Observable } from 'rxjs/Observable';
 import { UsersItems, UsersItemsService } from '../shared';
 
@@ -7,12 +7,9 @@ import { UsersItems, UsersItemsService } from '../shared';
   templateUrl: './users-items.component.html',
   styleUrls: ['./users-items.component.css']
 })
-export class UsersItemsComponent implements OnInit {
+export class UsersItemsComponent {
   usersItems$: Observable<UsersItems> = this.usersItemsService.getUsersItems();
 
   constructor(private usersItemsService: UsersItemsService) { }
-
-  ngOnInit() {
-  }
 
 }

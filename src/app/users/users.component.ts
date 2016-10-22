@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { Observable } from 'rxjs/Observable';
 import { UsersService, Users, User } from '../shared';
 
@@ -7,25 +7,21 @@ import { UsersService, Users, User } from '../shared';
   templateUrl: './users.component.html',
   styleUrls: ['./users.component.css']
 })
-export class UsersComponent implements OnInit {
-  users: Observable<Users> = this.usersService.getUsers();
+export class UsersComponent {
+  users$: Observable<Users> = this.usersService.getUsers();
   shouldShowNewUser: boolean = false;
   newUser: User = this.usersService.initializeNewUser();
 
   constructor(private usersService: UsersService) { }
 
-  ngOnInit() {
-
-  }
-
-  toggleNewUser() {
+  toggleNewUser(): void {
     this.shouldShowNewUser = !this.shouldShowNewUser;
 
     if (!this.shouldShowNewUser)
       this.newUser = this.usersService.initializeNewUser();
   }
 
-  addUser() {
+  addUser(): void {
     this.usersService.addUser(this.newUser);
     this.newUser = this.usersService.initializeNewUser();
   }

@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { UserItem } from '../../shared';
 
 @Component({
@@ -6,12 +6,7 @@ import { UserItem } from '../../shared';
   templateUrl: './user-items.component.html',
   styleUrls: ['./user-items.component.css']
 })
-export class UserItemsComponent implements OnInit {
+export class UserItemsComponent {
   @Input() userItem: UserItem;
-
-  constructor() { }
-
-  ngOnInit() {
-  }
 
 }

@@ -1,37 +1,30 @@
 import { Injectable } from '@angular/core';
 import { ActionReducer, Action, Store } from '@ngrx/store';
+import { Observable } from 'rxjs/Observable';
 import { UUID } from 'angular2-uuid';
 import { AppStore } from '../app-store';
+import { Item, Items } from './items';
 
 @Injectable()
 export class ItemsService {
 
   constructor(private store: Store<AppStore>) { }
 
-  getItems() {
+  getItems(): Observable<Items> {
     return this.store.select('items');
   }
 
-  initializeNewItem() {
+  initializeNewItem(): Item {
     return {id: UUID.UUID(), name: '', userID: undefined};
   }
 
-  addItem(user) {
-    console.log('USER: ', user);
+  addItem(user): void {
     this.store.dispatch({type: ADD_ITEM, payload: user});
   }
 
 }
 
-export interface Item {
-  id: UUID,
-  name: string,
-  userID: UUID
-}
-
-export interface Items extends Array<Item> {}
-
-export const ADD_ITEM = 'ADD_ITEM';
+export const ADD_ITEM: string = 'ADD_ITEM';
 
 const initialState: Items = [
   {id: 1, name: 'Item 1', userID: 3},

@@ -14,12 +14,12 @@
         <div md-line>
           <select [(ngModel)]="newItem.userID">
             <option value="undefined">Please select</option>
-            <option *ngFor="let user of users | async" [value]="user.id">{{user.name}}</option>
+            <option *ngFor="let user of users$ | async" [value]="user.id">{{user.name}}</option>
           </select>
           <button md-button (click)="addItem()">Add</button>
         </div>
       </md-list-item>
-      <md-list-item *ngFor="let item of items | async">
+      <md-list-item *ngFor="let item of items$ | async">
         <app-item [item]="item"></app-item>
       </md-list-item>
     </md-list>

@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { Observable } from 'rxjs/Observable';
 import { ItemsService, UsersService, Items, Item, Users } from '../shared';
 
@@ -7,9 +7,9 @@ import { ItemsService, UsersService, Items, Item, Users } from '../shared';
   templateUrl: './items.component.html',
   styleUrls: ['./items.component.css']
 })
-export class ItemsComponent implements OnInit {
-  items: Observable<Items> = this.itemsService.getItems();
-  users: Observable<Users> = this.usersService.getUsers();
+export class ItemsComponent {
+  items$: Observable<Items> = this.itemsService.getItems();
+  users$: Observable<Users> = this.usersService.getUsers();
   shouldShowNewItem: boolean = false;
   newItem: Item = this.itemsService.initializeNewItem();
 
@@ -18,17 +18,14 @@ export class ItemsComponent implements OnInit {
     private usersService: UsersService
   ) { }
 
-  ngOnInit() {
-  }
-
-  toggleNewItem() {
+  toggleNewItem(): void {
     this.shouldShowNewItem = !this.shouldShowNewItem;
 
     if (!this.shouldShowNewItem)
       this.newItem = this.itemsService.initializeNewItem();
   }
 
-  addItem() {
+  addItem(): void {
     this.itemsService.addItem(this.newItem);
     this.newItem = this.itemsService.initializeNewItem();
   }

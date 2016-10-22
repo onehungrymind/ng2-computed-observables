@@ -3,16 +3,16 @@ import { Store } from '@ngrx/store';
 import { Observable } from 'rxjs/Observable';
 import 'rxjs/add/observable/combineLatest';
 import { AppStore } from '../app-store';
-import { Items } from './items.service';
-import { Users } from './users.service';
+import { Items } from './items';
+import { Users } from './users';
+import { UsersItems } from './users-items';
 
 @Injectable()
 export class UsersItemsService {
 
-
   constructor(private store: Store<AppStore>) { }
 
-  getUsersItems() {
+  getUsersItems(): Observable<UsersItems> {
     const users$: Observable<Users> = this.store.select('users');
     const items$: Observable<Items> = this.store.select('items');
 
@@ -24,10 +24,3 @@ export class UsersItemsService {
   }
 
 }
-
-export interface UserItem {
-  userName: string,
-  items: Items
-}
-
-export interface UsersItems extends Array<UserItem> {}
