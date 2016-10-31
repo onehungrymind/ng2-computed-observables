@@ -12,10 +12,12 @@
       <md-list-item *ngIf="shouldShowNewItem">
         <md-input md-line placeholder="Name" [(ngModel)]="newItem.name"></md-input>
         <div class="form-footer" md-line>
-          <select [(ngModel)]="newItem.userID">
-            <option value="undefined">Please select</option>
-            <option *ngFor="let user of users$ | async" [value]="user.id">{{user.name}}</option>
-          </select>
+          <div class="select-wrapper">
+            <select [(ngModel)]="newItem.userID">
+              <option value="undefined">Select...</option>
+              <option *ngFor="let user of users$ | async" [value]="user.id">{{user.name}}</option>
+            </select>
+          </div>
           <button md-raised-button color="accent" (click)="addItem()">Add</button>
         </div>
       </md-list-item>

@@ -11,6 +11,47 @@ md-card-title {
   align-items: center;
 }
 
-.form-footer select, .form-footer button {
-  width: 45%
+.form-footer .select-wrapper, .form-footer button {
+  width: 45%;
+  position: relative;
+}
+
+.form-footer select {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  background: transparent;
+  -webkit-border-radius: 0;
+  -moz-border-radius: 0;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+  border-radius:0;
+  border: none;
+  border-bottom: 1px solid rgb(133, 153, 172);
+  color: white;
+  cursor: pointer;
+  outline: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 0;
+  min-width: 88px;
+  line-height: 36px;
+  width: 100%;
+  -webkit-transition: border-color .3s;
+  -moz-transition: border-color .3s;
+  -ms-transition: border-color .3s;
+  -o-transition: border-color .3s;
+  transition: border-color .3s;
+}
+
+.form-footer select:focus {
+  border-bottom-color: #C2185B;
+}
+
+.form-footer .select-wrapper:after {
+  content: '\25bc';
+  position: absolute;
+  right: 0;
+  line-height: 36px;
+  color: rgb(133, 153, 172);
+  cursor: pointer;
 }
