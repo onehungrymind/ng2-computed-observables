@@ -54,4 +54,5 @@ md-card-title {
   line-height: 36px;
   color: rgb(133, 153, 172);
   cursor: pointer;
+  pointer-events: none;
 }
