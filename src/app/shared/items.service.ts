@@ -5,6 +5,8 @@ import { UUID } from 'angular2-uuid';
 import { AppStore } from '../app-store';
 import { Item, Items } from './items';
 
+export const ADD_ITEM = 'ADD_ITEM';
+
 @Injectable()
 export class ItemsService {
 
@@ -24,15 +26,13 @@ export class ItemsService {
 
 }
 
-export const ADD_ITEM: string = 'ADD_ITEM';
-
-const initialState: Items = [
+export const initialItems: Items = [
   {id: 1, name: 'Item 1', userID: 3},
   {id: 2, name: 'Item 2', userID: 2},
   {id: 3, name: 'Item 3', userID: 1}
 ];
 
-export const items: ActionReducer<Items> = (state: Items = initialState, action: Action) => {
+export const items: ActionReducer<Items> = (state: Items = initialItems, action: Action) => {
 
   switch (action.type) {
     case ADD_ITEM:

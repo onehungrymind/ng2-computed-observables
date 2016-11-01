@@ -1,6 +1,6 @@
 import { Ng2ComputedObservablesPage } from './app.po';
 
-describe('ng2-computed-observables App', function() {
+xdescribe('ng2-computed-observables App', function() {
   let page: Ng2ComputedObservablesPage;
 
   beforeEach(() => {

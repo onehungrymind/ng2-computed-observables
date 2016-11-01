@@ -5,6 +5,8 @@ import { UUID } from 'angular2-uuid';
 import { AppStore } from '../app-store';
 import { User, Users } from './users';
 
+export const ADD_USER = 'ADD_USER';
+
 @Injectable()
 export class UsersService {
 
@@ -24,15 +26,13 @@ export class UsersService {
 
 }
 
-export const ADD_USER: string = 'ADD_USER';
-
-const initialState: Users = [
+export const initialUsers: Users = [
   {id: 1, name: 'Victor Wooten'},
   {id: 2, name: 'Marcus Miller'},
   {id: 3, name: 'Jaco Pastorious'}
 ];
 
-export const users: ActionReducer<Users> = (state: Users = initialState, action: Action) => {
+export const users: ActionReducer<Users> = (state: Users = initialUsers, action: Action) => {
 
   switch (action.type) {
     case ADD_USER:

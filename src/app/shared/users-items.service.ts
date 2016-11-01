@@ -18,7 +18,7 @@ export class UsersItemsService {
 
     return Observable.combineLatest(users$, items$, (users, items) => {
       return users.map(user => Object.assign({}, user, {
-        items: items.filter(item => item.userID == user.id)
+        items: items.filter(item => item.userID === user.id)
       }));
     });
   }

@@ -1,7 +1,7 @@
 import { Items } from './items';
+import { User } from './users';
 
-export interface UserItem {
-  userName: string,
+export interface UserItem extends User {
   items: Items
 }
 
