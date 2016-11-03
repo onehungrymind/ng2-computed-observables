@@ -5,5 +5,3 @@ export interface Item {
   name: string,
   userID: UUID
 }
-
-export interface Items extends Array<Item> {}

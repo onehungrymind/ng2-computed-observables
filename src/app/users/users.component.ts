@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { Observable } from 'rxjs/Observable';
-import { UsersService, Users, User } from '../shared';
+import { UsersService, User } from '../shared';
 
 @Component({
   selector: 'app-users',
@@ -8,7 +8,7 @@ import { UsersService, Users, User } from '../shared';
   styleUrls: ['./users.component.css']
 })
 export class UsersComponent {
-  users$: Observable<Users> = this.usersService.getUsers();
+  users$: Observable<User[]> = this.usersService.getUsers();
   shouldShowNewUser: boolean = false;
   newUser: User = this.usersService.initializeNewUser();
 

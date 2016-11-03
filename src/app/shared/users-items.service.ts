@@ -3,18 +3,18 @@ import { Store } from '@ngrx/store';
 import { Observable } from 'rxjs/Observable';
 import 'rxjs/add/observable/combineLatest';
 import { AppStore } from '../app-store';
-import { Items } from './items';
-import { Users } from './users';
-import { UsersItems } from './users-items';
+import { Item } from './items';
+import { User } from './users';
+import { UserItems } from './user-items';
 
 @Injectable()
 export class UsersItemsService {
 
   constructor(private store: Store<AppStore>) { }
 
-  getUsersItems(): Observable<UsersItems> {
-    const users$: Observable<Users> = this.store.select('users');
-    const items$: Observable<Items> = this.store.select('items');
+  getUsersItems(): Observable<UserItems[]> {
+    const users$: Observable<User[]> = this.store.select('users');
+    const items$: Observable<Item[]> = this.store.select('items');
 
     return Observable.combineLatest(users$, items$, (users, items) => {
       return users.map(user => Object.assign({}, user, {

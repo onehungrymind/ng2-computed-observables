@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { Observable } from 'rxjs/Observable';
-import { UsersItems, UsersItemsService } from '../shared';
+import { UserItems, UsersItemsService } from '../shared';
 
 @Component({
   selector: 'app-users-items',
@@ -8,7 +8,7 @@ import { UsersItems, UsersItemsService } from '../shared';
   styleUrls: ['./users-items.component.css']
 })
 export class UsersItemsComponent {
-  usersItems$: Observable<UsersItems> = this.usersItemsService.getUsersItems();
+  usersItems$: Observable<UserItems[]> = this.usersItemsService.getUsersItems();
 
   constructor(private usersItemsService: UsersItemsService) { }
 

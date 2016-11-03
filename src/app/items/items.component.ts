@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { Observable } from 'rxjs/Observable';
-import { ItemsService, UsersService, Items, Item, Users } from '../shared';
+import { ItemsService, UsersService, Item, User } from '../shared';
 
 @Component({
   selector: 'app-items',
@@ -8,8 +8,8 @@ import { ItemsService, UsersService, Items, Item, Users } from '../shared';
   styleUrls: ['./items.component.css']
 })
 export class ItemsComponent {
-  items$: Observable<Items> = this.itemsService.getItems();
-  users$: Observable<Users> = this.usersService.getUsers();
+  items$: Observable<Item[]> = this.itemsService.getItems();
+  users$: Observable<User[]> = this.usersService.getUsers();
   shouldShowNewItem: boolean = false;
   newItem: Item = this.itemsService.initializeNewItem();
 

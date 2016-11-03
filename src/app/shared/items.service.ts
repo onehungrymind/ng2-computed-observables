@@ -3,7 +3,7 @@ import { ActionReducer, Action, Store } from '@ngrx/store';
 import { Observable } from 'rxjs/Observable';
 import { UUID } from 'angular2-uuid';
 import { AppStore } from '../app-store';
-import { Item, Items } from './items';
+import { Item } from './items';
 
 export const ADD_ITEM = 'ADD_ITEM';
 
@@ -12,7 +12,7 @@ export class ItemsService {
 
   constructor(private store: Store<AppStore>) { }
 
-  getItems(): Observable<Items> {
+  getItems(): Observable<Item[]> {
     return this.store.select('items');
   }
 
@@ -26,13 +26,13 @@ export class ItemsService {
 
 }
 
-export const initialItems: Items = [
+export const initialItems: Item[] = [
   {id: 1, name: 'Item 1', userID: 3},
   {id: 2, name: 'Item 2', userID: 2},
   {id: 3, name: 'Item 3', userID: 1}
 ];
 
-export const items: ActionReducer<Items> = (state: Items = initialItems, action: Action) => {
+export const items: ActionReducer<Item[]> = (state: Item[] = initialItems, action: Action) => {
 
   switch (action.type) {
     case ADD_ITEM:

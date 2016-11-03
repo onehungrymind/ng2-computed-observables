@@ -4,5 +4,3 @@ export interface User {
   id: UUID,
   name: string
 }
-
-export interface Users extends Array<User> {}

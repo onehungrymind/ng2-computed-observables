@@ -1,5 +1,5 @@
 import { Component, Input } from '@angular/core';
-import { UserItem } from '../../shared';
+import { UserItems } from '../../shared';
 
 @Component({
   selector: 'app-user-items',
@@ -7,6 +7,5 @@ import { UserItem } from '../../shared';
   styleUrls: ['./user-items.component.css']
 })
 export class UserItemsComponent {
-  @Input() userItem: UserItem;
-
+  @Input() userItems: UserItems;
 }
