@@ -2,8 +2,8 @@ import { Injectable } from '@angular/core';
 import { ActionReducer, Action, Store } from '@ngrx/store';
 import { Observable } from 'rxjs/Observable';
 import { UUID } from 'angular2-uuid';
-import { AppStore } from '../app-store';
-import { Item } from './items';
+import { AppStore } from '../app-store.model';
+import { Item } from './item.model';
 
 export const ADD_ITEM = 'ADD_ITEM';
 
@@ -17,19 +17,18 @@ export class ItemsService {
   }
 
   initializeNewItem(): Item {
-    return {id: UUID.UUID(), name: '', userID: undefined};
+    return {id: UUID.UUID(), name: '', userId: undefined};
   }
 
-  addItem(user): void {
-    this.store.dispatch({type: ADD_ITEM, payload: user});
+  addItem(item): void {
+    this.store.dispatch({type: ADD_ITEM, payload: item});
   }
-
 }
 
 export const initialItems: Item[] = [
-  {id: 1, name: 'Item 1', userID: 3},
-  {id: 2, name: 'Item 2', userID: 2},
-  {id: 3, name: 'Item 3', userID: 1}
+  {id: '1', name: 'Item 1', userId: '3'},
+  {id: '2', name: 'Item 2', userId: '2'},
+  {id: '3', name: 'Item 3', userId: '1'}
 ];
 
 export const items: ActionReducer<Item[]> = (state: Item[] = initialItems, action: Action) => {

@@ -3,7 +3,7 @@
 import { TestBed, inject } from '@angular/core/testing';
 import { ItemsService, initialItems, ADD_ITEM, items } from './items.service';
 import { Store } from '@ngrx/store';
-import { AppStore } from '../app-store';
+import { AppStore } from '../app-store.model';
 import { Observable } from 'rxjs/Observable';
 import 'rxjs/add/observable/of';
 

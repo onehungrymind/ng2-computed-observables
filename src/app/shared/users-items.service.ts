@@ -2,10 +2,10 @@ import { Injectable } from '@angular/core';
 import { Store } from '@ngrx/store';
 import { Observable } from 'rxjs/Observable';
 import 'rxjs/add/observable/combineLatest';
-import { AppStore } from '../app-store';
-import { Item } from './items';
-import { User } from './users';
-import { UserItems } from './user-items';
+import { AppStore } from '../app-store.model';
+import { Item } from './item.model';
+import { User } from './user.model';
+import { UserItems } from './user-items.model';
 
 @Injectable()
 export class UsersItemsService {
@@ -18,9 +18,8 @@ export class UsersItemsService {
 
     return Observable.combineLatest(users$, items$, (users, items) => {
       return users.map(user => Object.assign({}, user, {
-        items: items.filter(item => item.userID === user.id)
+        items: items.filter(item => item.userId === user.id)
       }));
     });
   }
-
 }

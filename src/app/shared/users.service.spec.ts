@@ -2,7 +2,7 @@
 
 import { TestBed, inject } from '@angular/core/testing';
 import { UsersService, initialUsers, ADD_USER, users } from './users.service';
-import { AppStore } from '../app-store';
+import { AppStore } from '../app-store.model';
 import { Store } from '@ngrx/store';
 import { Observable } from 'rxjs/Observable';
 import 'rxjs/add/observable/of';

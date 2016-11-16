@@ -36,7 +36,7 @@ describe('Service: UsersItems', () => {
   it('should combine users and items into new format', inject([UsersItemsService], (service: UsersItemsService) => {
     const output = service.getUsersItems();
     const expected = initialUsers.map(user => Object.assign({}, user, {
-      items: initialItems.filter(item => item.userID === user.id)
+      items: initialItems.filter(item => item.userId === user.id)
     }));
 
     output.subscribe(usersItems => expect(usersItems).toEqual(expected));
